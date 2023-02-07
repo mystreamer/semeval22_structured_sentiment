@@ -1,3 +1,4 @@
 analysis/count_errors.py
 analysis/metrics.py
+compare/**
 __pycache__

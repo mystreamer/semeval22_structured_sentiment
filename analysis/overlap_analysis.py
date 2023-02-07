@@ -82,9 +82,28 @@ def get_sequences(golds, preds, role):
 if __name__ == "__main__":
     golds, preds = map(open_json, sys.argv[1:])
     pred_path = Path(sys.argv[2])
-    dataset = pred_path.parent.name
-    mono_or_single = pred_path.parent.parent.name
-    team = pred_path.parent.parent.parent.name
+    # dataset = pred_path.parent.name
+    dataset = "silverstandard"
+    # mono_or_single = pred_path.parent.parent.name
+    mono_or_single = "mono"
+    # team = pred_path.parent.parent.parent.name
+    team = "individual"
+
+    error_map = {
+        "II": "Too late",  # "Late Stop",
+        "I": "Too early",  # "Early Stop",
+        "III": "Too early",  # "Early Start & Stop",
+        "IV": "Too early",  # "Early Start",
+        "V": "Other", # "Surround"
+        "VI": "Other", # "Contained"
+        "VII": "Too late",  # "Late Start",
+        "VIII": "Too late",  # "Late Start & Stop",
+        "IX": "True negative",  # unnused
+        "N": "True positive",  # unnused
+        "X": "False positive",
+        "XI": "Multiple",
+        "XII": "False negative",
+    }
 
     # transform into form expected by metrics (token-based IOB)
     for role in ROLES:
@@ -96,9 +115,23 @@ if __name__ == "__main__":
             continue
         # print(role, file=sys.stderr)
         # print(errors, file=sys.stderr)
+        errors_transformed = {}
+        # print(errors)
+        for k in errors.keys():
+            # breakpoint()
+            # if error_map[k] in errors_transformed.keys():
+            #     print("Already present, not adding", errors[k])
+            #     print("Combined res would be", errors_transformed[error_map[k]] + errors[k])
+            #     continue
+            errors_transformed.update({
+                error_map[k]: errors_transformed[error_map[k]] + errors[k] 
+                            if error_map[k] in errors_transformed.keys()
+                            else errors[k]
+                        })
+
         json.dump({
             "role": role,
-            "errors": errors,
+            "errors": errors_transformed,
             "team": team,
             "dataset": dataset,
             "mono/single": mono_or_single,

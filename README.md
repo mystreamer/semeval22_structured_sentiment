@@ -1,3 +1,19 @@
+## Fork info
+
+Move both the `gold_standard` file and the `pred` file into the `compare` folder.
+
+First,
+``cd analysis``
+
+Make sure to delete: `rm -f assembled_overlap.json`
+
+Make sure to download analysis scripts first for the overlap analysis to work: `./analysis_script.sh`
+
+To run the in-depth error analysis:
+
+`python3 analysis/overlap_analysis.py "compare/test.json" "compare/prediction.json_converted" >>assembled_overlap.json`
+
+
 ## SemEval-2022 Shared Task 10: Structured Sentiment Analysis
 
 This Github repository hosts the data and baseline models for the [SemEval-2022 shared task 10](https://competitions.codalab.org/competitions/33556) on structured sentiment. In this repository you will find the datasets, baselines, and other useful information on the shared task.
@@ -23,20 +39,24 @@ This Github repository hosts the data and baseline models for the [SemEval-2022 
 
 ## Table of contents:
 
-1. [Problem description](#problem-description)
-2. [Subtasks](#subtasks)
-   1. [Monolingual](#monolingual)
-      1. [Data](#data)
-   2. [Cross-lingual](#cross-lingual)
-3. [Evaluation](#evaluation)
-4. [Data format](#data-format)
-5. [Resources](#resources)
-6. [Submission via Codalab](#submission-via-codalab)
-7. [Baselines](#baselines)
-8. [Important dates](#important-dates)
-9. [Frequently Asked Questions](#frequently-asked-questions)
-10. [Task organizers](#task-organizers)
-11. [Citation](#citation)
+- [Fork info](#fork-info)
+- [SemEval-2022 Shared Task 10: Structured Sentiment Analysis](#semeval-2022-shared-task-10-structured-sentiment-analysis)
+- [LATEST NEWS](#latest-news)
+- [Table of contents:](#table-of-contents)
+- [Problem description](#problem-description)
+- [Subtasks](#subtasks)
+  - [Monolingual](#monolingual)
+    - [Data](#data)
+  - [Cross-lingual](#cross-lingual)
+- [Evaluation](#evaluation)
+- [Data format](#data-format)
+- [Resources:](#resources)
+- [Submission via Codalab](#submission-via-codalab)
+- [Baselines](#baselines)
+- [Important dates](#important-dates)
+- [Frequently asked questions](#frequently-asked-questions)
+- [Task organizers](#task-organizers)
+- [Citation](#citation)
 
 ## Problem description
 
