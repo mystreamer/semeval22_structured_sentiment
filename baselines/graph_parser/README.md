@@ -1,3 +1,39 @@
+## Fork Info
+-----
+
+`cd` into repo. 
+
+Use the notebook `perin_preprocessing.ipynb` to bring the stancer data into a form accepted by the graph parser.
+
+Pull all recent data from the etl_pipeline into the repository:
+
+Create the virtual environment for this repo using:<br>
+
+```
+python3 -m venv ~/envs/graph-parser \
+  && source ~/envs/graph-parser/bin/activate \
+  && pip install --upgrade pip
+```
+<br>
+Then <br>
+
+```
+pip3 install -r requirements.txt
+```
+
+<br>
+Then:
+
+```
+export CUDA_VISIBLE_DEVICES=6
+```
+
+Now to train:
+
+```
+bash ./get_baseline.sh
+```
+
 ## Structured Sentiment as Dependency Graph Parsing baseline
 
 This subrepository contains the code and datasets described in following paper: [Structured Sentiment Analysis as Dependency Graph Parsing](https://aclanthology.org/2021.acl-long.263/).
