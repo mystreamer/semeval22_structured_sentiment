@@ -29,7 +29,7 @@ cd ..
 fi
 
 # Iterate over datsets
-for DATASET in darmstadt_unis mpqa multibooked_ca multibooked_eu norec opener_es opener_en; do
+for DATASET in mpqa; do
     mkdir logs/$DATASET;
     mkdir experiments/$DATASET;
     # Iterate over the graph setups (head_final, head_first, head_final-inside_label, head_final-inside_label-dep_edges, head_final-inside_label-dep_edges-dep_labels, etc)
