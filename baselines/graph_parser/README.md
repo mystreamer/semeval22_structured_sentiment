@@ -1,7 +1,16 @@
 ## Fork Info
 -----
 
-`cd` into repo. 
+For running with the MPQA test, use:
+
+```
+cp -r ../../../../etl/data/raw/database.mpqa.2.0 ../../data/mpqa/
+(cd ../../data/mpqa && ./process_mpqa.sh)
+```
+
+Don't forget to `chmod` the file `process_mpqa.sh` to `a+x`
+
+`cd` into repo.
 
 Use the notebook `perin_preprocessing.ipynb` to bring the stancer data into a form accepted by the graph parser.
 
